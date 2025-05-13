@@ -1,0 +1,309 @@
+openapi: 3.0.3
+
+info:
+  title: Sample API
+  description: API definition for Sample API 3
+  version: "1.0.0"
+
+servers:
+  - url: "https://api.example.com"
+    description: "Production Server"
+
+paths:
+  /create-api:
+    post:
+      summary: Create a new API
+      operationId: createApi
+      tags:
+        - API Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateApiModel"
+      responses:
+        "201":
+          description: API created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateApiModel"
+        "400":
+          description: Invalid request
+        "500":
+          description: Internal server error
+
+ 
+
+components:
+  schemas:
+   CreateApiModel:
+    name: "Sample API 3"
+    context: "/sample-api 3"
+    endpointMethod: "POST"
+    version: 1
+    endpoint: "https://api.example.com/sample"
+    optionId: null
+    publishInfo: 
+    proxyFileName: "proxy-config.json"
+    proxyFileUrl: "https://example.com/proxy-config.json"
+    proxy: "Enabled"
+    proxyMethods: "GET, POST"
+    publisherAccsControlId: null
+    publisherAccsControlData:
+      id: null
+      name: "Public Access"
+    devloperPortalVisibilityId: null
+    devloperPortalVisibilityData:
+      id: null
+      name: "Visible to all"
+    proxyTagsIds:
+      - 301
+      - 302
+    proxyTagsData:
+      - id: 301
+      - id: 302
+    apiCategoryId: 103
+    apiCategoryData:
+      id: 203
+      name: "Banking"
+    salesName: "John Doe"
+    salesemailId: "john.doe@example.com"
+    techHeadName: "Jane Smith"
+    techHeademailId: "jane.smith@example.com"
+    proxyDocList:
+      - docName: "API Guide"
+        description: "Detailed API usage guide"
+        fileName: "api-guide.pdf"
+        fileUrl: "https://example.com/docs/api-guide.pdf"
+    apiProxyPropeties:
+      - key: "timeout"
+        value: "30s"
+
+
+
+EndPoint:
+  apiId: 9282
+  productionEndpoint:
+    id: null
+    url: "https://api.example.com/production"
+    advanceConfiguration:
+      actionId: 333
+      durationInMs: "5000"
+      timeoutErrorCodeId: 333
+      retries: "3"
+      retryDelayInMs: "2000"
+      suspensionErrorCodeId: 333
+      initialDurationInMs: "10000"
+      maxDurationInMs: "60000"
+  sandboxEndpoint:
+    id: null
+    url: "https://api.example.com/sandbox"
+    advanceConfiguration:
+      actionId: 333
+      durationInMs: "5000"
+      timeoutErrorCodeId: 333
+      retries: "3"
+      retryDelayInMs: "2000"
+      suspensionErrorCodeId: 333
+      initialDurationInMs: "10000"
+      maxDurationInMs: "60000"
+  username: "api_user"
+  password: "securepassword"
+  grandTypeId: 333
+  tokenUrl: "https://api.example.com/token"
+  clientId: "client_123"
+  clientSecret: "supersecretkey"
+  parameters:
+    - paramName: "scope"
+      paramValue: "read"
+    - paramName: "grant_type"
+      paramValue: "client_credentials"
+  endpointConfiguration:
+    loadBalanceConfiguration:
+      algorithmId: 333
+      sessionManagementId: 333
+      sessionTimeoutId: 333
+      productionEndpoints:
+        - id: null
+          url: "https://api.example.com/production"
+          advanceConfiguration:
+            actionId: 333
+            durationInMs: "5000"
+            timeoutErrorCodeId: 333
+            retries: "3"
+            retryDelayInMs: "2000"
+            suspensionErrorCodeId: 333
+            initialDurationInMs: "10000"
+            maxDurationInMs: "60000"
+      sandboxEndpoints:
+        - id: null
+          url: "https://api.example.com/sandbox"
+          advanceConfiguration:
+            actionId: 333
+            durationInMs: "5000"
+            timeoutErrorCodeId: 333
+            retries: "3"
+            retryDelayInMs: "2000"
+            suspensionErrorCodeId: 333
+            initialDurationInMs: "10000"
+            maxDurationInMs: "60000"
+    failOverConfiguraion:
+      algorithmId: 333
+      sessionManagementId: 333
+      sessionTimeoutId: 333
+      productionEndpoints:
+        - id: null
+          url: "https://api.example.com/production"
+          advanceConfiguration:
+            actionId: 333
+            durationInMs: "5000"
+            timeoutErrorCodeId: 333
+            retries: "3"
+            retryDelayInMs: "2000"
+            suspensionErrorCodeId: 333
+            initialDurationInMs: "10000"
+            maxDurationInMs: "60000"
+      sandboxEndpoints:
+        - id: null
+          url: "https://api.example.com/sandbox"
+          advanceConfiguration:
+            actionId: 333
+            durationInMs: "5000"
+            timeoutErrorCodeId: 333
+            retries: "3"
+            retryDelayInMs: "2000"
+            suspensionErrorCodeId: 333
+            initialDurationInMs: "10000"
+            maxDurationInMs: "60000"
+    certificates:
+      - endpointId: 333
+        alias: "MainServer"
+        password: "securepassword"
+        fileName:
+          - "config.json"
+          - "certificate.pem"
+        fileUrl:
+          - "https://example.com/files/config.json"
+          - "https://example.com/files/certificate.pem"
+      - endpointId: 333
+        alias: "MainServer"
+        password: "securepassword"
+        fileName:
+          - "config.json"
+          - "certificate.pem"
+        fileUrl:
+          - "https://example.com/files/config.json"
+          - "https://example.com/files/certificate.pem"
+
+Resource:
+  id: null
+  apiId: 9282
+  rateLimitingLevel: "OPERATIONLEVEL"
+  rateLimitId: 9323
+  httpConfig:
+    - httpVerb: "POST"
+      urlPattern: "/api/v1/resource"
+      summary: "Retrieve resource details"
+      description: "This endpoint provides details about a specific resource."
+      security: true
+      rateLimitId: 9323
+      parameter:
+        - parameterType: "Query"
+          parameterName: "resourceId"
+          dataType: "string"
+          mandatory: true
+        - parameterType: "Query"
+          parameterName: "resourceId"
+          dataType: "string"
+          mandatory: true
+      inOrOut: "IN"
+      mediationDescription: "Pre-processing of request data"
+      allScope: false
+      roles:
+        - "ADMIN"
+        - "USER"
+      apiPolicyIds:
+        - null
+        - null
+      apiPolicies:
+        - id: null
+          name: "Rate Limiting Policy"
+          version: "1.0"
+          applicationFlowIds:
+            - null
+          apiTypesIds:
+            - null
+          description: "This policy enforces rate limiting on API requests."
+          fileUrl: "https://example.com/policies/rate-limiting.pdf"
+          fileName: "rate-limiting.pdf"
+          policyAttributes:
+            - attributeName: "maxRequestsPerMinute"
+              displayName: "Max Requests Per Minute"
+              validationRegex: "^[0-9]+$"
+              attributeTypeId: null
+        - id: null
+          name: "Rate Limiting Policy"
+          version: "1.0"
+          applicationFlowIds:
+            - null
+          apiTypesIds:
+            - null
+          description: "This policy enforces rate limiting on API requests."
+          fileUrl: "https://example.com/policies/rate-limiting.pdf"
+          fileName: "rate-limiting.pdf"
+          policyAttributes:
+            - attributeName: "maxRequestsPerMinute"
+              displayName: "Max Requests Per Minute"
+              validationRegex: "^[0-9]+$"
+              attributeTypeId: null
+
+
+
+
+Runtime:
+  id: null
+  apiMasterId: 20000
+  requestDetails:
+    id: null
+    mandatory: true
+    keyManagerConfiguration: "ALLOWALL"
+    accessAllowOrigin: true
+    accessAllowHeaderIds:
+      - 334
+    accessAllowMethodIds:
+      - 333
+    accessAllowCredentials: true
+    enableSchemaValidation: true
+    transportLevelSecurity:
+      - "mutualSSL"
+    applicationLevelSecurity:
+      - "oauth2"
+    keyManagers:
+      - "keyCloak"
+    mediationPolicies: "COMMONPOLICIES"
+
+  responseDetails:
+    id: null
+    cacheTimeout: "100"
+    enableCaching: true
+    mediationPolicies: "COMMONPOLICIES"
+
+  backendDetails:
+    id: null
+    throughPut: "UNLIMITED"
+    sandboxRateLimitingId: 334
+    sandboxRequestCount: "10"
+    productionRateLimitingId: 333
+    productionRequestCount: "10"
+    productionEndpointId: 19564
+    sandboxEndpointId: 19566
+
+  faultsInfo:
+    id: null
+    mediationPolicies: null
+
+ 
+
+
